@@ -8,21 +8,49 @@ void main() {
 // widget을 만드려면 플러터 SDK에 있는 3개의 코어 윋젯 중 하나를 상속받아야됨
 class App extends StatelessWidget {
   @override //부모클래스 덮어쓰기
-  // 어떤 family 스타일을 사용할지 flutter에게 전달 == 기본 UI 설정
   Widget build(BuildContext context) {
     return MaterialApp(
-      // 사람들이 우리 앱의 home에 갔을 때 뭘 보여줘야 할까?
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('Hello Flutter!'),
-        ),
-        body: Center(
-          child: Text('Hello World!'),
+        backgroundColor: Color(0xFF181818),
+        body: Padding(
+          // 전체 ui 상하좌우에 패딩값 줌
+          // padding: EdgeInsets.all(10),
+
+          //수평(가로)에 패딩 줌
+          padding: EdgeInsets.symmetric(horizontal: 40),
+          child: Column(
+            children: [
+              SizedBox(
+                height: 50,
+              ),
+              Row(
+                // 수직 방향으로 end는 제일 오른쪽
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Column(
+                    // 수평에서 제일 오른쪽
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text(
+                        'Hey, Selena',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 28,
+                            fontWeight: FontWeight.w800),
+                      ),
+                      Text('Welcome back',
+                          style: TextStyle(
+                            color: Colors.white.withOpacity(0.7),
+                            fontSize: 12,
+                          )),
+                    ],
+                  )
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
-    // Material == 구글, Cupertino == ios
-    // 모바일 앱의 모든 화면은 scaffold가 필요
-    // scaffold는 navigation bar, bottom tab bar, 상단 버튼, 화면 중앙 정렬 등 구현 OK
   }
 }
