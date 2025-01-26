@@ -15,13 +15,14 @@ class App extends StatelessWidget {
         body: Padding(
           // 전체 ui 상하좌우에 패딩값 줌
           // padding: EdgeInsets.all(10),
-
           //수평(가로)에 패딩 줌
           padding: EdgeInsets.symmetric(horizontal: 40),
           // column은 서로를 위 아래에 놓고 싶을 때 사용
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             // 정렬 시 Column crossAxis는 가로 방향
             children: [
+              //헤더이  margin - top 같은 개념
               SizedBox(
                 height: 50,
               ),
@@ -49,6 +50,48 @@ class App extends StatelessWidget {
                           )),
                     ],
                   )
+                ],
+              ),
+              SizedBox(
+                height: 120,
+              ),
+              Text(
+                'Total Balance',
+                style: TextStyle(
+                  fontSize: 22,
+                  color: Colors.white.withOpacity(0.8),
+                ),
+              ),
+              Text(
+                '\$5 194 482',
+                style: TextStyle(
+                  fontSize: 44,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white,
+                ),
+              ),
+              SizedBox(height: 20),
+              Row(
+                children: [
+                  Container(
+                      decoration: BoxDecoration(
+                        color: Colors.amber,
+                        borderRadius: BorderRadius.circular(45),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          // 상하에 넣을 패딩값이 25
+                          vertical: 15,
+                          // 좌우가 horizontal
+                          horizontal: 45,
+                        ),
+                        child: Text(
+                          'Transfer',
+                          style: TextStyle(
+                            fontSize: 20,
+                          ),
+                        ),
+                      )),
                 ],
               )
             ],
