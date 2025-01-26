@@ -114,6 +114,7 @@ class App extends StatelessWidget {
                 height: 20,
               ),
               Container(
+                clipBehavior: Clip.hardEdge, //clipBehavior -> overflow 되었을때 처리
                 decoration: BoxDecoration(
                   color: Color(0xFF1F2123),
                   borderRadius: BorderRadius.circular(25),
@@ -121,6 +122,7 @@ class App extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(30),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -156,6 +158,19 @@ class App extends StatelessWidget {
                             ],
                           ),
                         ],
+                      ),
+                      Transform.scale(
+                        scale: 2.2,
+                        // 아이콘 크기는 고정하여 카드 크기도 고정
+                        child: Transform.translate(
+                          // translatr 위젯을 사용해서 아이콘 위치 조정 (x,y)
+                          offset: Offset(-5, 12),
+                          child: const Icon(
+                            Icons.euro_rounded,
+                            color: Colors.white,
+                            size: 88,
+                          ),
+                        ),
                       ),
                     ],
                   ),
