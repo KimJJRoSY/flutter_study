@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_study/widgets/Button.dart';
 
 //constant는 수정할 수 없고, compile 전에 그 value를 알 수 있는 변수
 void main() {
@@ -73,27 +74,16 @@ class App extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  MyButton(),
-                  Container(
-                      decoration: BoxDecoration(
-                        color: const Color(0xFF1F2123),
-                        borderRadius: BorderRadius.circular(45),
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(
-                          // 상하에 넣을 패딩값이 25
-                          vertical: 15,
-                          // 좌우가 horizontal
-                          horizontal: 45,
-                        ),
-                        child: Text(
-                          'Request',
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.white,
-                          ),
-                        ),
-                      )),
+                  Button(
+                    text: 'Transfer',
+                    bgColor: const Color(0xFFF1B33B),
+                    textColor: Colors.black,
+                  ),
+                  Button(
+                    text: 'Rquest',
+                    bgColor: const Color(0xFF1F2123),
+                    textColor: Colors.white,
+                  ),
                 ],
               )
             ],
@@ -101,34 +91,5 @@ class App extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class MyButton extends StatelessWidget {
-  const MyButton({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        decoration: BoxDecoration(
-          color: Colors.amber,
-          borderRadius: BorderRadius.circular(45),
-        ),
-        child: Padding(
-          padding: EdgeInsets.symmetric(
-            // 상하에 넣을 패딩값이 25
-            vertical: 15,
-            // 좌우가 horizontal
-            horizontal: 45,
-          ),
-          child: Text(
-            'Transfer',
-            style: TextStyle(
-              fontSize: 20,
-            ),
-          ),
-        ));
   }
 }
