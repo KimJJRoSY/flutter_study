@@ -15,7 +15,7 @@ class App extends StatelessWidget {
           // 전체 ui 상하좌우에 패딩값 줌
           // padding: EdgeInsets.all(10),
           //수평(가로)에 패딩 줌
-          padding: EdgeInsets.symmetric(horizontal: 40),
+          padding: EdgeInsets.symmetric(horizontal: 20),
           // column은 서로를 위 아래에 놓고 싶을 때 사용
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,6 +71,7 @@ class App extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
                       decoration: BoxDecoration(
@@ -88,6 +89,26 @@ class App extends StatelessWidget {
                           'Transfer',
                           style: TextStyle(
                             fontSize: 20,
+                          ),
+                        ),
+                      )),
+                  Container(
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF1F2123),
+                        borderRadius: BorderRadius.circular(45),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          // 상하에 넣을 패딩값이 25
+                          vertical: 15,
+                          // 좌우가 horizontal
+                          horizontal: 45,
+                        ),
+                        child: Text(
+                          'Request',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
                           ),
                         ),
                       )),
