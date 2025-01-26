@@ -20,12 +20,14 @@ class App extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 40),
           // column은 서로를 위 아래에 놓고 싶을 때 사용
           child: Column(
+            // 정렬 시 Column crossAxis는 가로 방향
             children: [
               SizedBox(
                 height: 50,
               ),
               //row는 서로 옆에 놓고 싶을 때 사용 -> div 개념
               Row(
+                // 정렬 시 row의 crossAxis는 세로 방향
                 // 수직 방향으로 end는 제일 오른쪽
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
