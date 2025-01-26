@@ -18,17 +18,19 @@ class App extends StatelessWidget {
 
           //수평(가로)에 패딩 줌
           padding: EdgeInsets.symmetric(horizontal: 40),
+          // column은 서로를 위 아래에 놓고 싶을 때 사용
           child: Column(
             children: [
               SizedBox(
                 height: 50,
               ),
+              //row는 서로 옆에 놓고 싶을 때 사용 -> div 개념
               Row(
                 // 수직 방향으로 end는 제일 오른쪽
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Column(
-                    // 수평에서 제일 오른쪽
+                    // 수평에서 제 일 오른쪽
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Text(
