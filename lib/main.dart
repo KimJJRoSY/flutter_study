@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_study/widgets/Button.dart';
+import 'package:flutter_study/widgets/currency_card.dart';
 
 //constant는 수정할 수 없고, compile 전에 그 value를 알 수 있는 변수
 void main() {
@@ -12,7 +13,8 @@ class App extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         backgroundColor: Color(0xFF181818),
-        body: Padding(
+        body: SingleChildScrollView(
+          // body: Padding(
           // 전체 ui 상하좌우에 패딩값 줌
           // padding: EdgeInsets.all(10),
           //수평(가로)에 패딩 줌
@@ -53,7 +55,7 @@ class App extends StatelessWidget {
                 ],
               ),
               const SizedBox(
-                height: 120,
+                height: 40,
               ),
               Text(
                 'Total Balance',
@@ -86,7 +88,7 @@ class App extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 100),
+              const SizedBox(height: 50),
               Row(
                 // in Row, main은 가로축, cross은 세로축
                 // in Column, main은 세로, cross은 가로
@@ -113,67 +115,31 @@ class App extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              Container(
-                clipBehavior: Clip.hardEdge, //clipBehavior -> overflow 되었을때 처리
-                decoration: BoxDecoration(
-                  color: Color(0xFF1F2123),
-                  borderRadius: BorderRadius.circular(25),
+              CurrencyCard(
+                name: 'Euro',
+                code: 'EUR',
+                amount: '6 428',
+                icon: Icons.euro_rounded,
+                isInverted: false,
+              ),
+              Transform.translate(
+                offset: Offset(0, -20),
+                child: CurrencyCard(
+                  name: 'Bitcoin',
+                  code: 'BTC ',
+                  amount: '9 785',
+                  icon: Icons.currency_bitcoin,
+                  isInverted: true,
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.all(30),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Euro',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 32,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Row(
-                            children: [
-                              Text(
-                                '6 428',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 18,
-                                ),
-                              ),
-                              SizedBox(width: 10),
-                              Text(
-                                'EUR',
-                                style: TextStyle(
-                                  color: Colors.white.withOpacity(0.8),
-                                  fontSize: 15,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      Transform.scale(
-                        scale: 2.2,
-                        // 아이콘 크기는 고정하여 카드 크기도 고정
-                        child: Transform.translate(
-                          // translatr 위젯을 사용해서 아이콘 위치 조정 (x,y)
-                          offset: Offset(-5, 12),
-                          child: const Icon(
-                            Icons.euro_rounded,
-                            color: Colors.white,
-                            size: 88,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+              ),
+              Transform.translate(
+                offset: Offset(0, -40),
+                child: CurrencyCard(
+                  name: 'Dollar',
+                  code: 'USD',
+                  amount: '428',
+                  icon: Icons.attach_money_outlined,
+                  isInverted: false,
                 ),
               ),
             ],
