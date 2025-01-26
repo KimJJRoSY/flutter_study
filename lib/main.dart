@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
+//constant는 수정할 수 없고, compile 전에 그 value를 알 수 있는 변수
 void main() {
   runApp(App());
 }
 
-// widget은 앱의 ui를 만드는 레고 블럭 같음
-// widget을 만드려면 플러터 SDK에 있는 3개의 코어 윋젯 중 하나를 상속받아야됨
 class App extends StatelessWidget {
   @override //부모클래스 덮어쓰기
   Widget build(BuildContext context) {
@@ -23,7 +22,7 @@ class App extends StatelessWidget {
             // 정렬 시 Column crossAxis는 가로 방향
             children: [
               //헤더이  margin - top 같은 개념
-              SizedBox(
+              const SizedBox(
                 height: 50,
               ),
               //row는 서로 옆에 놓고 싶을 때 사용 -> div 개념
@@ -52,7 +51,7 @@ class App extends StatelessWidget {
                   )
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 120,
               ),
               Text(
@@ -62,7 +61,7 @@ class App extends StatelessWidget {
                   color: Colors.white.withOpacity(0.8),
                 ),
               ),
-              Text(
+              const Text(
                 '\$5 194 482',
                 style: TextStyle(
                   fontSize: 44,
@@ -70,7 +69,7 @@ class App extends StatelessWidget {
                   color: Colors.white,
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Row(
                 children: [
                   Container(
